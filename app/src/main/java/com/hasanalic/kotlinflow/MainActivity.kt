@@ -29,14 +29,14 @@ class MainActivity : ComponentActivity() {
         setContent {
             KotlinFlowTheme {
                 val viewModel: MyViewModel by viewModels()
-                FirstScreen(viewModel = viewModel)
+                ScreenTwo(viewModel = viewModel)
             }
         }
     }
 }
 
 @Composable
-fun FirstScreen(viewModel: MyViewModel) {
+fun ScreenOne(viewModel: MyViewModel) {
 
     val counter = viewModel.countDownTimer.collectAsState(initial = 10)
 
@@ -53,7 +53,7 @@ fun FirstScreen(viewModel: MyViewModel) {
 }
 
 @Composable
-fun SecondScreen(viewModel: MyViewModel) {
+fun ScreenTwo(viewModel: MyViewModel) {
 
     val liveDataValue = viewModel.liveData.observeAsState()
     val stateFlowValue = viewModel.stateFlow.collectAsState()
