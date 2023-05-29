@@ -15,5 +15,7 @@ class FSViewModel: ViewModel() {
             delay(1000)
             emit(count++)
         }
-    }.stateIn(viewModelScope, SharingStarted.Lazily,0)
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000),0)
+    // SharingStarted.WhileSubscribed(5000) -> kullanıcı başka bir ekrana geçerse bu flow 5 saniye boyunca
+    // yayın yapmaya devam eder ve sonra durur
 }
